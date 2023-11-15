@@ -5,15 +5,12 @@ import {
   HttpCode,
   HttpStatus,
   UseGuards,
-  Req,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dtos/LoginDto';
 import { RegisterDto } from './dtos/RegisterDto';
-import { AuthGuard } from '@nestjs/passport';
-import { Request } from 'express';
 import { GetCurrentUser, GetCurrentUserId, Public } from './common/decorators';
-import { AtGuard, RtGuard } from './common/guards';
+import { RtGuard } from './common/guards';
 
 @Controller('auth')
 export class AuthController {
@@ -33,8 +30,7 @@ export class AuthController {
     };
   }
 
-  // @UseGuards(AuthGuard)
-  @Public()
+  // @Public()
   @Post('register')
   @HttpCode(HttpStatus.OK)
   async register(@Body() registerDto: RegisterDto): Promise<any> {
@@ -42,7 +38,6 @@ export class AuthController {
     return { message };
   }
 
-  @UseGuards(AtGuard)
   @Post('logout')
   @HttpCode(HttpStatus.OK)
   async logout(@GetCurrentUserId() userId: number) {
