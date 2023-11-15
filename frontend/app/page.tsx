@@ -5,10 +5,27 @@ import { getExperiences } from "@/lib/experiences";
 import { getProjects } from "@/lib/projects";
 import { getSectionByIdentifier } from "@/lib/sections";
 
+const getProjectsServer = async () => {
+  const res = await getProjects();
+  return res;
+}
+
+const getExperiencesServer = async () => {
+  const res = await getExperiences();
+  return res;
+}
+
+
+const getSectionServer = async (identifier: string) => {
+  const res = await getSectionByIdentifier(identifier);
+  return res;
+}
+
+
 export default async function Home() {
-  const { data: projectsData } = await getProjects();
-  const { data: experiencesData } = await getExperiences();
-  const { data: heroSectionData } = await getSectionByIdentifier("hero");
+  const { data: projectsData } = await getProjectsServer();
+  const { data: experiencesData } = await getExperiencesServer();
+  const { data: heroSectionData } = await getSectionServer("hero");
 
   return (
     <>
