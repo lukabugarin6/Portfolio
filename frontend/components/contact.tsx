@@ -38,17 +38,17 @@ export default function Contact() {
 	};
 	return (
 		<section>
-			<div className="bg-[#f4f4f4] py-[80px]">
-				<div className="max-w-6xl mx-auto mx-8">
-					<div className="w-[70%]">
-						<h3 className="mt-2 mb-2 text-3xl font-normal leading-[46px] mb-[40px]">
+			<div className="w-[calc(100%_+_2rem)] -translate-x-4 bg-[#f4f4f4] sm:w-auto sm:translate-x-0 py-[60px] md:py-[80px] px-4">
+				<div className="max-w-6xl mx-auto">
+					<div className="w-[100%] md:w-[70%]">
+						<h3 className="mt-2 mb-2 text-3xl font-normal mb-[30px] leading-[46px] md:mb-[40px]">
 							Want to get in touch?
 							<br />
 							Drop me a line!
 						</h3>
 						<form>
-							<div className="grid grid-cols-2 gap-x-7 gap-y-2.5">
-								<div>
+							<div className="grid grid-cols-2 gap-x-7 gap-y-2 md:gap-y-2.5">
+								<div className='col-span-2 md:col-span-1'>
 									<label
 										className="block uppercase mb-2.5 text-xs font-serif-medium font-medium leading-5"
 										htmlFor="name"
@@ -63,7 +63,7 @@ export default function Contact() {
 										onChange={handleChange}
 									/>
 								</div>
-								<div>
+								<div className='col-span-2 md:col-span-1'>
 									<label
 										className="block uppercase mb-2.5 text-xs font-serif-medium font-medium leading-5"
 										htmlFor="email"

@@ -14,7 +14,7 @@ export default function Sidebar() {
   let pathname = usePathname() || "/";
 
   return (
-    <header className="fixed top-0 left-0 py-8 px-[50px] bg-white w-full z-10">
+    <header className="fixed top-0 left-0 py-6 xl:py-8 xl:px-[50px] bg-white w-full z-10">
       <nav
         className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
         id="nav"

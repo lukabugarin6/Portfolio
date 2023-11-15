@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					shadow="0 0 10px #2299DD,0 0 5px #2299DD"
 				/>
 				<Navbar />
-				<main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0 px-4 pt-8 md:pt-20 lg:pt-48">
+				<main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0 px-4 pt-16 md:pt-20 lg:pt-48">
 					{/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
 					{children}
 					{/* </ThemeProvider> */}

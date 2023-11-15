@@ -23,9 +23,9 @@ export default async function AboutPage() {
 
 	return (
 		<>
-			<section className="max-w-[1140px] mx-auto mb-[140px]">
-				<div className="grid grid-cols-3 gap-[80px] min-h-[450px]">
-					<div>
+			<section className="max-w-[1140px] mx-auto mb-[70px] md:mb-[140px]">
+				<div className="grid grid-cols-3 gap-[40px] md:gap-[80px]">
+					<div className='col-span-3 md:col-span-1'>
 						<h3 className="uppercase mb-2 text-xs leading-5 tracking-wider text-gray-400 font-serif-medium font-medium">
 							{aboutHeroData?.subtitle}
 						</h3>
@@ -34,7 +34,7 @@ export default async function AboutPage() {
 							{aboutHeroData?.paragraph}
 						</p>
 					</div>
-					<div className="col-span-2 relative">
+					<div className="col-span-3 md:col-span-2 relative min-h-[200px] md:min-h-[450px]">
 						{aboutHeroData?.image && (
 							<Image
 								style={{ objectFit: 'cover' }}
@@ -46,9 +46,9 @@ export default async function AboutPage() {
 					</div>
 				</div>
 			</section>
-			<section className="max-w-[1140px] mx-auto mb-[140px]">
-				<div className="grid grid-cols-2 gap-[80px]">
-					<div>
+			<section className="max-w-[1140px] mx-auto mb-[70px] md:mb-[140px]">
+				<div className="grid grid-cols-2 gap-[40px] md:gap-[80px]">
+					<div className='col-span-2 md:col-span-1'>
 						<h3 className="mt-2 mb-2 text-3xl font-normal leading-[46px]">
 							{myCareerData?.title}
 						</h3>
@@ -56,13 +56,13 @@ export default async function AboutPage() {
 							{myCareerData?.paragraph}
 						</p>
 					</div>
-					<div className="grid grid-cols-2 pt-4 gap-x-[30px]">
+					<div className="col-span-2 md:col-span-1 grid grid-cols-2 pt-4 gap-x-[10px] md:gap-x-[30px]">
 						{skillsData &&
 							skillsData.length > 0 &&
 							skillsData
 								.sort((a, b) => a.order - b.order)
 								.map((skill) => (
-									<h4 className="mb-2 text-3xl text-gray-400 leading-[46px]">
+									<h4 className="mb-2 text-2xl md:text-3xl text-gray-400 leading-[46px]">
 										{skill.title}
 									</h4>
 								))}

@@ -11,7 +11,7 @@ export interface ProjectGridInterface {
 export default function ProjectsGrid({ projectsData: data }: ProjectGridInterface) {
 	return (
 		<section>
-			<div className="grid grid-cols-1 gap-7 md:grid-cols-11 mx-7">
+			<div className="grid grid-cols-1 gap-6 md:gap-7 md:grid-cols-11 md:mx-[30px]">
 				{data &&
 					data.length > 0 &&
 					data.map((project) => {
@@ -21,11 +21,11 @@ export default function ProjectsGrid({ projectsData: data }: ProjectGridInterfac
 								href={`/projects/${slug}`}
 								className={cn(
 									'cursor-pointer text-center',
-									span === 7 && 'col-span-7',
-									span === 4 && 'col-span-4'
+									span === 7 && 'md:col-span-7',
+									span === 4 && 'md:col-span-4'
 								)}
 							>
-								<div className="relative h-[460px] transition-all duration-300 hover:opacity-80">
+								<div className="relative h-[180px] md:h-[460px] transition-all duration-300 hover:opacity-80">
 									<Image
 										src={images && images[images.length - 1].imageUrl}
 										fill
@@ -33,10 +33,10 @@ export default function ProjectsGrid({ projectsData: data }: ProjectGridInterfac
 										style={{ objectFit: 'cover' }}
 									/>
 								</div>
-								<h3 className="transition-all duration-300 text-gray-900 hover:text-gray-400 mt-7 mb-1 text-xl font-normal leading-8 no-underline">
+								<h3 className="transition-all duration-300 text-gray-900 hover:text-gray-400 mt-2 md:mt-7 sm:mb-1 text-l md:text-xl font-normal leading-8 no-underline">
 									{title}
 								</h3>
-								<h4 className="text-gray-500 text-base font-normal leading-7">
+								<h4 className="text-gray-500 text-sm md:text-base font-normal md:leading-7">
 									{stack}
 								</h4>
 							</Link>

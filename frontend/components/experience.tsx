@@ -8,15 +8,15 @@ export interface ExperienceInterface {
 export default function Experience({ experiencesData }: ExperienceInterface) {
 	return (
 		<section>
-			<div className="max-w-6xl mx-auto mx-8 mb-[140px] mt-[140px]">
-				<h2 className="mt-2 mb-2 text-4xl font-normal leading-[50px] mb-[50px]">
+			<div className="max-w-6xl mx-auto mx-8 px-[16px] md:px-[30px] mb-[80px] mt-[80px] md:mb-[140px] md:mt-[140px]">
+				<h2 className="mt-2 mb-2 text-[30px] md:text-4xl font-normal leading-[50px] md:mb-[50px]">
 					My experience
 				</h2>
 				<div className="grid grid-cols-4">
 					{experiencesData &&
 						experiencesData.length > 0 &&
 						experiencesData.map((exp) => (
-							<div className="col-span-3">
+							<div className="col-span-4 md:col-span-3">
 								<h3 className="normal-case mb-2 text-xl font-normal leading-8">
 									{exp.company}
 								</h3>
@@ -34,7 +34,7 @@ export default function Experience({ experiencesData }: ExperienceInterface) {
 									{exp.experience_parts &&
 										exp.experience_parts.length > 0 &&
 										exp.experience_parts.reverse().map((exp_part) => (
-											<>
+											<span className='block mb-2 md:mb-0'>
 												<strong>
 													{exp_part.title}
 													<br />
@@ -42,7 +42,7 @@ export default function Experience({ experiencesData }: ExperienceInterface) {
 												</strong>
 												{exp_part.description}
 												<br />
-											</>
+											</span>
 										))}
 								</p>
 							</div>

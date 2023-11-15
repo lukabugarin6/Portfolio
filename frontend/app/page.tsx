@@ -13,12 +13,12 @@ export default async function Home() {
   return (
     <>
       <section>
-        <div className="max-w-[1140px] mx-[30px] xl:mx-auto mb-[140px]">
+        <div className="w-full  md:w-auto max-w-[1140px] md:mx-[30px] xl:mx-auto mb-[70px] md:mb-[140px]">
           <h3 className="text-xl font-normal leading-8">{heroSectionData?.subtitle}</h3>
           <h2 className="text-gray-400 text-base font-normal leading-7">
             {heroSectionData?.title}
           </h2>
-          <h1 className="normal-case mt-2 mb-2 text-[40px] leading-[50px]">
+          <h1 className="normal-case mt-2 mb-2 text-[26px] leading-[34px] md:text-[40px] md:leading-[50px]">
             {heroSectionData?.paragraph}
           </h1>
         </div>

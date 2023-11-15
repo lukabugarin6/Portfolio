@@ -18,8 +18,8 @@ export default async function SingleProjectPage({ params }) {
         <h2 className="text-gray-400 text-base font-normal leading-7">
           {project?.stack}
         </h2>
-        <div className="grid grid-cols-2 mt-[100px] mb-[140px] gap-x-[50px]">
-          <div>
+        <div className="grid grid-cols-2 mt-[100px] mb-[140px] gap-[40px] md:gap-[50px]">
+          <div className="col-span-2 md:col-span-1">
             <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
               Project Overview
             </h3>
@@ -27,7 +27,7 @@ export default async function SingleProjectPage({ params }) {
               {project?.overview}
             </p>
           </div>
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
               My Contributions
             </h3>
@@ -37,7 +37,7 @@ export default async function SingleProjectPage({ params }) {
           </div>
         </div>
       </section>
-      <section className="mx-[30px] grid grid-cols-1 gap-[30px]">
+      <section className="md:mx-[30px] grid grid-cols-1 gap-[30px]">
         {project?.images.reverse().map((image, index) => (
           <div className="relative" key={index}>
             <Image
