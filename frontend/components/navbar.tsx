@@ -3,7 +3,6 @@
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
 
 const navItems = {
   "/": { name: "home" },
@@ -38,7 +37,6 @@ export default function Sidebar() {
               </Link>
             );
           })}
-          {/* <ThemeToggle /> */}
         </div>
       </nav>
     </header>
