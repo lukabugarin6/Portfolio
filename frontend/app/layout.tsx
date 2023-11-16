@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Navbar from '../components/navbar';
-import { ThemeProvider } from '@/components/theme-provider';
 import Footer from '@/components/footer';
 // import { Analytics } from '@vercel/analytics/react';
 import NextTopLoader from 'nextjs-toploader';
@@ -74,10 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				/>
 				<Navbar />
 				<main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0 px-4 pt-16 md:pt-20 lg:pt-48">
-					{/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
 					{children}
-					{/* </ThemeProvider> */}
-					{/* <Analytics /> */}
 					<Footer />
 				</main>
 			</body>
