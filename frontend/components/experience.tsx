@@ -8,7 +8,7 @@ export interface ExperienceInterface {
 export default function Experience({ experiencesData }: ExperienceInterface) {
 	return (
 		<section>
-			<div className="max-w-6xl mx-auto mx-8 px-[16px] md:px-[30px] mb-[80px] mt-[80px] md:mb-[140px] md:mt-[140px]">
+			<div className="max-w-6xl mx-auto px-[16px] md:px-[30px] mb-[80px] mt-[80px] md:mb-[140px] md:mt-[140px]">
 				<h2 className="mt-2 mb-2 text-[30px] md:text-4xl font-normal leading-[50px] md:mb-[50px]">
 					My experience
 				</h2>
