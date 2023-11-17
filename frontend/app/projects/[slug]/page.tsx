@@ -1,73 +1,60 @@
 import ProjectContact from "@/components/project-contact";
-import { Project } from "@/lib/interface";
 import { getProjectBySlug } from "@/lib/projects";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 
 // @ts-ignore
 export default async function SingleProjectPage({ params }) {
-  const [project, setProject] = useState<Project | null>(null);
-  const [projectError, setProjectError] = useState<any>(null);
-  // const { data: project, error } = await getProjectBySlug(params.slug);
+  const { data: project, error } = await getProjectBySlug(params.slug);
   // const project = projectsData.find((p) => p.slug === params.slug);
 
-  const fetchProject = async () => {
-    const { data, error } = await getProjectBySlug(params.slug);
-    setProject(data);
-    setProjectError(error);
-  };
-
-  useEffect(() => {
-    if (params.slug) {
-      fetchProject();
-    }
-  }, [params.slug]);
-
-  if (projectError) return <div>Something went wrong</div>;
+  if (error) return <div>Something went wrong</div>;
 
   return (
-    <div>
-      <section className="max-w-[1140px] mx-auto mb-[140px]">
-        <h1 className="normal-case mt-2 mb-2 text-[40px] leading-[50px] text-gray-800">
-          {project?.title}
-        </h1>
-        <h2 className="text-gray-400 text-base font-normal leading-7">
-          {project?.stack}
-        </h2>
-        <div className="grid grid-cols-2 mt-[70px] mb-[70px] md:mt-[100px] md:mb-[140px] gap-[40px] md:gap-[50px]">
-          <div className="col-span-2 md:col-span-1">
-            <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
-              Project Overview
-            </h3>
-            <p className="text-gray-400 text-base font-normal leading-7">
-              {project?.overview}
-            </p>
+    <Suspense>
+      <div>
+        <section className="max-w-[1140px] mx-auto mb-[140px]">
+          <h1 className="normal-case mt-2 mb-2 text-[40px] leading-[50px] text-gray-800">
+            {project?.title}
+          </h1>
+          <h2 className="text-gray-400 text-base font-normal leading-7">
+            {project?.stack}
+          </h2>
+          <div className="grid grid-cols-2 mt-[100px] mb-[140px] gap-[40px] md:gap-[50px]">
+            <div className="col-span-2 md:col-span-1">
+              <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
+                Project Overview
+              </h3>
+              <p className="text-gray-400 text-base font-normal leading-7">
+                {project?.overview}
+              </p>
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
+                My Contributions
+              </h3>
+              <p className="text-gray-400 text-base font-normal leading-7">
+                {project?.contributions}
+              </p>
+            </div>
           </div>
-          <div className="col-span-2 md:col-span-1">
-            <h3 className="normal-case mb-2 text-xl font-normal leading-8 text-gray-600">
-              My Contributions
-            </h3>
-            <p className="text-gray-400 text-base font-normal leading-7">
-              {project?.contributions}
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="md:mx-[30px] grid grid-cols-1 gap-[30px]">
-        {project?.images.reverse().map((image, index) => (
-          <div className="relative" key={index}>
-            <Image
-              src={image.imageUrl}
-              width={0}
-              height={0}
-              alt={image.imageUrl}
-              sizes="100%"
-              style={{ objectFit: "cover", width: "100%", height: "auto" }}
-            />
-          </div>
-        ))}
-      </section>
-      <ProjectContact />
-    </div>
+        </section>
+        <section className="md:mx-[30px] grid grid-cols-1 gap-[30px]">
+          {project?.images.reverse().map((image, index) => (
+            <div className="relative" key={index}>
+              <Image
+                src={image.imageUrl}
+                width={0}
+                height={0}
+                alt={image.imageUrl}
+                sizes="100%"
+                style={{ objectFit: "cover", width: "100%", height: "auto" }}
+              />
+            </div>
+          ))}
+        </section>
+        <ProjectContact />
+      </div>
+    </Suspense>
   );
 }
