@@ -42,18 +42,21 @@ export default async function SingleProjectPage({ params }) {
           </div>
         </section>
         <section className="md:mx-[30px] grid grid-cols-1 gap-[30px]">
-          {project?.images.reverse().map((image, index) => (
-            <div className="relative" key={index}>
-              <Image
-                src={image.imageUrl}
-                width={0}
-                height={0}
-                alt={image.imageUrl}
-                sizes="100%"
-                style={{ objectFit: "cover", width: "100%", height: "auto" }}
-              />
-            </div>
-          ))}
+          {project &&
+            project.images &&
+            project.images.length > 0 &&
+            project?.images.reverse().map((image, index) => (
+              <div className="relative" key={index}>
+                <Image
+                  src={image?.imageUrl}
+                  width={0}
+                  height={0}
+                  alt={image?.imageUrl}
+                  sizes="100%"
+                  style={{ objectFit: "cover", width: "100%", height: "auto" }}
+                />
+              </div>
+            ))}
         </section>
         <ProjectContact />
       </div>
