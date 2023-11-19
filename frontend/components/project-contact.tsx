@@ -8,7 +8,7 @@ export default function ProjectContact() {
         If you like what you see and want to work together, get in touch!
       </h5>
       <a
-        className="transition-all inline-block duration-300 text-gray-800 hover:text-gray-600 normal-case mt-3 md:mt-4 mb-4 text-[26px] md:text-[46px] font-normal no-underline leading-[88px]"
+        className="transition-all inline-block duration-300 text-gray-800 hover:text-gray-600 normal-case mt-3 md:mt-4 mb-4 text-[24px] md:text-[46px] font-normal no-underline leading-[88px]"
         href=""
       >
         lukabugarin6@gmail.com

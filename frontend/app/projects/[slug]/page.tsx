@@ -1,17 +1,19 @@
 import ProjectContact from "@/components/project-contact";
+import Spinner from "@/components/ui/spinner";
 import { getProjectBySlug } from "@/lib/projects";
 import Image from "next/image";
 import { Suspense } from "react";
 
+export const revalidate = 0;
+
 // @ts-ignore
 export default async function SingleProjectPage({ params }) {
   const { data: project, error } = await getProjectBySlug(params.slug);
-  // const project = projectsData.find((p) => p.slug === params.slug);
 
   if (error) return <div>Something went wrong</div>;
 
   return (
-    <Suspense>
+    <Suspense fallback={<Spinner />}>
       <div>
         <section className="max-w-[1140px] mx-auto mb-[140px]">
           <h1 className="normal-case mt-2 mb-2 text-[40px] leading-[50px] text-gray-800">
