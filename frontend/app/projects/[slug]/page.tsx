@@ -8,7 +8,10 @@ export const revalidate = 0;
 
 // @ts-ignore
 export default async function SingleProjectPage({ params }) {
-  const { data: project, error } = await getProjectBySlug(params.slug);
+  const response = await getProjectBySlug(params.slug);
+
+  const error = response?.error;
+  const project = response?.data;
 
   if (error) return <div>Something went wrong</div>;
 
