@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import NextTopLoader from "nextjs-toploader";
 
 const montserrat = localFont({
@@ -88,6 +88,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0 px-4 pt-16 md:pt-20 lg:pt-48">
           {children}
+          <Analytics />
           <Footer />
         </main>
       </body>
