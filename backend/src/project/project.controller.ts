@@ -31,7 +31,7 @@ export class ProjectController {
 
   @Public()
   @Get(':slug')
-  async getProjectById(@Param('slug') slug: string) {
+  async getProjectBySlug(@Param('slug') slug: string) {
     try {
       const project = await this.projectService.getProjectBySlug(slug);
       return project;
